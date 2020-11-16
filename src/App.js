@@ -16,9 +16,8 @@ import Button from 'react-bootstrap/Button';
 import './App.css';
 
 //importation des composants SuppliersList et SuppliersMap
-import {SuppliersList} from './SuppliersList.js';
-import {SuppliersMap} from './SuppliersMap.js';
-import {Supplier} from "./Supplier";
+import {Cellules} from './Cellules.js';
+import {Labyrinthe} from "./Labyrinthe";
 
 /* un composant écris avec une fonction: composant fonctionnel = sans state (contraitre au composant class)
                                                                 mais pb résolu par la solution des Hooks
@@ -32,44 +31,27 @@ function App() {
         <Router>
             <div className="App">
                 <header className="App-header" >
-                    <Link className="home" to='/home'>Que voulez-vous faire ?</Link>
-                    <Link to='/liste'>
+                    <Link className="home" to='/home'>Labyrinthe</Link>
+                    <Link to='/cellule'>
                         <Button variant="info" size="lg" block
                         >
                             <a
                                 className="App-link"
                                 rel="noopener noreferrer"
                             >
-                                Voir la liste des fournisseurs
+                                Voir le labyrinthe
                             </a>
                         </Button>
-                    </Link>
-                    <Link to='/carte'>
-                    <Button variant="info" size="lg" block
-                    >
-                        <a
-                            className="App-link"
-                            rel="noopener noreferrer"
-                        >
-                            Voir la carte des fournisseurs
-                        </a>
-                    </Button>
                     </Link>
                 </header>
 
                     {/*Création des routes*/}
                 <Switch>
-                    <Route exact path="/liste">
-                        <SuppliersList />
+                    <Route exact path="/cellule">
+                        <Cellules />
                     </Route>
-                    <Route path={"/supplier"}>
-                        <Supplier/>
-                    </Route>
-                    <Route path="/carte">
-                        <SuppliersMap />
-                    </Route>
-                    <Route path="/">
-                        <h1>Accueil</h1>
+                    <Route path={"/labyrhinte"}>
+                        <Labyrinthe/>
                     </Route>
                 </Switch>
             </div>
